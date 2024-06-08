@@ -25,7 +25,7 @@ public class Tarea implements Comparable<Tarea>{
     }
 
     public Integer getTiempo() {
-        return tiempo;
+        return this.tiempo;
     }
 
     public void setTiempo(Integer tiempo) {

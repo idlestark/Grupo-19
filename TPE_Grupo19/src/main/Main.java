@@ -1,5 +1,7 @@
 package main;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Main {
 
@@ -39,23 +41,28 @@ public class Main {
         System.out.println();
 
         //SOLUCIÓN CON BACKTRACKING (ASIGNAR TAREAS A CADA PROCESADOR)
+//        Backtracking solucionBacktracking = servicios.ejecutarBacktracking(0, 50);
+//        for (Procesador p : solucionBacktracking.getProcesadores()) {
+//            System.out.print("Procesador " + p.getId() + ": ");
+//            if (p.getTareas().isEmpty()) System.out.print("no tiene tareas");
+//            for (Tarea t : p.getTareas()) {
+//                System.out.print(t.getId() + " ");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println("Costo: " + solucionBacktracking.getEstados());
+//        System.out.println("Mejor tiempo: " + solucionBacktracking.getTiempoMaximo());
+
         Backtracking solucionBacktracking = servicios.ejecutarBacktracking(0, 50);
-        ArrayList<Procesador> listaAsignaciones = new ArrayList<>(solucionBacktracking.getAsignacion().keySet());
-        for (Procesador p : listaAsignaciones) {
+        for (Procesador p : solucionBacktracking.getAsignacion().keySet()) {
             System.out.print("Procesador " + p.getId() + ": ");
             for (Tarea t : solucionBacktracking.getAsignacion().get(p)) {
                 System.out.print(t.getId() + " ");
             }
             System.out.println();
         }
-        System.out.println("Tiempo máximo: " + solucionBacktracking.getTiempoMaximo());
         System.out.println("Costo: " + solucionBacktracking.getEstados());
+        System.out.println("Mejor tiempo: " + solucionBacktracking.getTiempoMaximo());
 
-
-        // Greedy
-        Algoritmo solucionG = servicios.ejecutarGreedy(0, 50);
-
-        // Imprimir la Solución Greedy
-        //System.out.println(solucionG);
     }
 }

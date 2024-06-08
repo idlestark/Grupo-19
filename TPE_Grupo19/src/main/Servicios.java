@@ -72,16 +72,14 @@ public class Servicios {
     public Backtracking ejecutarBacktracking(int tiempoMaximo, int tiempoMaximoNoRefrigerado) {
         Backtracking backtracking = new Backtracking(procesadores);
         ArrayList<Tarea> listaTareas = new ArrayList<>(mapaTareas.values());
-        return backtracking.ejecutar(tiempoMaximoNoRefrigerado, new HashMap<>(procesadores), listaTareas);
+        return backtracking.ejecutar(tiempoMaximoNoRefrigerado, listaTareas);
     }
 
-    /**
-     * <<Breve explicación de la estrategia de resolución>>
-     */
-    public Greedy ejecutarGreedy(int tiempoMaximo, int tiempoMaximoNoRefrigerado) {
-        Greedy greedy = new Greedy(tiempoMaximo, procesadores);
+    /*public void ejecutarBack(int tiempoMaximo){
+        Backtracking backtrack = new Backtracking();
+        ArrayList<Procesador> listaProcesadores = new ArrayList<>(procesadores.values());
         ArrayList<Tarea> listaTareas = new ArrayList<>(mapaTareas.values());
-        return greedy.ejecutar(tiempoMaximoNoRefrigerado, new HashMap<>(procesadores), listaTareas);
-    }
+        backtrack.ejecutar(tiempoMaximo, listaProcesadores, listaTareas);
+    } */
 
 }
